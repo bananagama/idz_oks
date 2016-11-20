@@ -1,0 +1,94 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.min.css">
+    <title>Кодування цифрових сигналів</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="conv">
+        <div class="container">
+            <h5>Кодування</h5>
+            <p>Для побудови графіків ваше число повинне бути у диапозоні:
+                <p>
+                    <ul>
+                        <li>
+                            для двійкової системи счислення <code>[00000000;11111111]</code>;
+                        </li>
+                        <li>
+                            для вісімкової системи счислення <code>[0;377]</code>;
+                        </li>
+                        <li>
+                            для десятичної системи счислення <code>[0;255]</code>;
+                        </li>
+                        <li>
+                            для шістнадцяткової системи счислення <code>[00;FF]</code>.
+                        </li>
+                    </ul>
+                    <p id="errCalc"></p>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="pull-left">Число:</p><input value="" class="pull-left" id="inp" type="text" placeholder="Число" />
+                            <p class="pull-left">з</p> <select id="baseFrom" class="pull-left" placeholder="Select One">
+              <option selected="selected" value="2">2</option>
+                  <option value="8">8</option>
+              <option value="10" selected>10</option>
+              <option value="16">16</option>
+          </select>
+                            <p class="pull-left">перевести у</p> <select id="baseTo" class="pull-left" placeholder="Select One">
+               <option selected="selected" value="2">2</option>
+                   <option value="8">8</option>
+               <option value="10">10</option>
+               <option value="16">16</option>
+           </select>
+                            <button class="pull-left" onclick="Convert()">Кодувати</button>
+                            <input id="res" class="pull-left" type="text" placeholder="Результат" />
+                        </div>
+                    </div>
+        </div>
+        </div>
+    </section>
+    <section id="graph">
+        <div class="container card">
+            <h5 id="nameGraph">Модуляція</h5>
+            <div class="row">
+                <div class="col-4">
+                    <div id="mycontainer">
+                    </div>
+                    <button id="capture" style="margin: 1em 0;" class="btn horizontal-align" onclick="capture()">Зберегти</button>
+                </div>
+                <div class="col-8">
+                    <p id="err"></p>
+                    <p>Ваше число повинне бути у двійковій системі счислення <code>[00000000;11111111]</code> та завдовжки у <code>8</code> символів</p>
+                    <input style="width:100%; margin: 0.5em 0;" type="text" id="myNum" value="01011000"></input>
+                    <button id="draw1" class="btn btn-draw btn-outline" onclick="Graph(1)">Амплітудна модуляція</button>
+                    <button id="draw2" class="btn btn-draw btn-outline" onclick="Graph(2)">Частотна модуляція</button>
+                    <button id="draw3" class="btn btn-draw btn-outline" onclick="Graph(3)">Фазова модуляція</button>
+                    <button id="draw4" class="btn btn-draw btn-outline" onclick="Graph(4)">NRZ</button>
+                    <button id="draw5" class="btn btn-draw btn-outline" onclick="Graph(5)">NRZI</button>
+                    <button id="draw6" class="btn btn-draw btn-outline" onclick="Graph(6)">AMI</button>
+                    <button id="draw7" class="btn btn-draw btn-outline" onclick="Graph(7)">Біполярний імпульсний код</button>
+                    <button id="draw8" class="btn btn-draw btn-outline" onclick="Graph(8)">2B1Q</button>
+                    <button id="draw9" class="btn btn-draw btn-outline" onclick="Graph(9)">Манчестерський код</button>
+                </div>
+            </div>
+            <p id="desc"></p>
+        </div>
+    </section>
+    <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
+    <script language="javascript" type="text/javascript" src="data.js"></script>
+    <script language="javascript" type="text/javascript" src="shapePlots.js"></script>
+    <script language="javascript" type="text/javascript" src="sketch.js"></script>
+    <script language="javascript" type="text/javascript" src="calc.js"></script>
+</body>
+
+</html>
